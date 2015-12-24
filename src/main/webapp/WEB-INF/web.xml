@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>weixinApp</display-name>
+
+	<servlet>
+		<servlet-name>jfbweixin-app</servlet-name>
+		<servlet-class>com.weixin.zjjfb.servlet.WeiXinServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>jfbweixin-app</servlet-name>
+		<url-pattern>/weixin.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>initTokenServlet</servlet-name>
+		<servlet-class>com.weixin.zjjfb.servlet.InitTokenServlet</servlet-class>
+		<!-- 配置获取access_token所需参数appid和appsecret -->
+		<init-param>
+			<param-name>appid</param-name>
+			<param-value>wx33f33656b6aab17c</param-value>
+		</init-param>
+		<init-param>
+			<param-name>appsecret</param-name>
+			<param-value>d4624c36b6795d1d99dcf0547af5443d</param-value>
+		</init-param>
+		<!-- 加载启动  -->
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	
+	<!-- 欢迎界面  -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
